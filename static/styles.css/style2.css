@@ -1,0 +1,14 @@
+body{
+    background: url("../img/фон.jpg");
+}
+p{
+	color: white;
+	font: 20px Didot;
+	text-align: center;
+ }
+.block{
+	width: 1600px;
+	height: 800px;
+	background-color: rgba(0,0,0,70%);
+	margin: -20px;
+}
