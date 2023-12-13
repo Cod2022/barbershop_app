@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for, redirect
 from models import Client, db
 from message_to_bot import send_message, get_from_env
 
@@ -18,6 +18,10 @@ def init_db():
 def index_get():
     return render_template('index.html')
 
+@app.get('/submission')
+def submission_get():
+    return render_template('submission.html')
+
 
 @app.post('/')
 def index_submit():
@@ -28,7 +32,7 @@ def index_submit():
     client = Client(name=name, phone_number=tel)
     db.session.add(client)
     db.session.commit()
-    return render_template('submission.html')
+    return redirect(url_for('submission_get'))
 
 
 if __name__ == '__main__':
